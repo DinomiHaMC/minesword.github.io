@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>МайнСворд 3 - Главная</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="page-header">
+        <nav class="main-menu">
+            <img src="img\logo.png" alt="logo" class="logo">
+            <img src="img\user-avatar.png" alt="user" class="user-icon">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="posts.html">Посты</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main class="blur-overlay">
+        <img src="img/title.png" alt="МайнСворд" class="title">
+        <div class="main-content">
+            <input type="button" value="Discord" class="discord-button">
+            <input type="button" value="Скопировать IP" onclick="copyText()" class="ip-button">
+        </div>
+
+        <div class="container">
+            <h1>Привет всем!</h1>
+            <p>Теперь этот сервер — не просто обычная <span class="highlight">ванила</span>, а полноценный <span class="highlight">ивент-сервер</span>!</p>
+            <p>Это значит, что он будет открываться редко, но запоминающе, и только на короткое время — например, на пару дней.</p>
+            <p>Каждый раз вас ждут <span class="highlight">уникальные изменения</span>: усложнения, улучшения, упрощения, а главное — необычный и захватывающий геймплей, который точно не оставит вас равнодушными.</p>
+            <p>Подготовьтесь к чему-то действительно <span class="highlight">интересному</span>!</p>
+        </div><br><br><br><br>
+
+
+        <div class="container">
+            <h1>Анкета для заявки</h1>
+
+            <button class="accordion">Показать анкету</button>
+            <div class="panel">
+                <p>*На доп вопросы ответ не обязателен.*</p>
+
+                <p><strong>1.</strong> Ваше имя.</p>
+                <p><strong>2.</strong> Как к вам обращаться (Ник и/или имя).</p>
+                <p><strong>3.</strong> Насколько часто будете играть.</p>
+                <p><strong>4.</strong> Ваши цели (НЕ БАНАЛЬНЫЕ: ПОВЫЖЕВАТЬ; ПОИГРАТЬ).</p>
+                <p><strong>5.</strong> Возраст.</p>
+                <p><strong>6.</strong> Ник.</p>
+                <p><strong>7.</strong> Лицензия (Да / Нет).</p>
+                <p><strong>8.</strong> Где удобно общаться.</p>
+
+                <button class="accordion">Дополнительные вопросы</button>
+                <div class="panel">
+                    <p><strong>9.</strong> Ваши увлечения в игре.</p>
+                    <p><strong>10.</strong> В какие игры еще играете.</p>
+                    <p><strong>11.</strong> На каких серверах еще играете.</p>
+                    <p><strong>12.</strong> Примерный процент соотношения игры на других серверах и на мс2 (На мс2 100/ другие 0).</p>
+                    <p><strong>13.</strong> Есть твинк (Да / Нет).</p>
+                    <ul>
+                        <li><em>13.1.</em> Ник твинка.</li>
+                        <li><em>13.2.</em> Время игры твинка.</li>
+                        <li><em>13.3.</em> Предназначение твинка.</li>
+                    </ul>
+                    <p><strong>14.</strong> Умения (Пвп / строительство (домов) / редстоун; Пример: 60%/10%/0%).</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script>
+        document.querySelectorAll(".accordion").forEach(button => {
+            button.addEventListener("click", function() {
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        });
+
+        function copyText() {
+            const text = "Пример текста для копирования";
+            navigator.clipboard.writeText(text).then(() => {
+                console.log("Скопировано!");
+            }).catch(err => {
+                console.error("Ошибка копирования: ", err);
+            });
+        }
+
+        const overlay = document.querySelector(".blur-overlay");
+
+        document.addEventListener("mousemove", (event) => {
+            overlay.style.setProperty("--x", `${event.clientX}px`);
+            overlay.style.setProperty("--y", `${event.clientY}px`);
+        });
+    </script>
+</body>
+</html>
